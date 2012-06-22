@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" dir="ltr">
 <head>
@@ -15,14 +16,19 @@
     
 </head>
 <body>
-<div style="padding:1em; max-width:1200px; line-height:1.5em;">
-<center><h1>{{group}} ({{place}})</h1></center>
-
+<div style="padding:1em; max-width:900px; line-height:1.5em;">
+<center><h1>Benvenuto! Scegli un Topic e scopri chi ha i tuoi stessi interessi</h1></center>
 <br /><br />
-<img src="{{ STATIC_URL }}{{filename}}"><br /><br />
-<br /><br />
-
-<center><a href="/home/">HOME PAGE</a></center>
+<form action="thing_graph/" method="post">
+<input type="submit" value="Choose" /><br /><br />
+{% csrf_token %}
+{% for thing in all_thing_list %}
+    <input type="radio" name="thing" id="thing{{ forloop.counter }}" value="{{ thing.value }}" />
+    <label for="thing{{ forloop.counter }}">{{ thing.value }}</label><br />
+{% endfor %}
+<br />
+<input type="submit" value="Choose" />
+</form>
 </div>
 <div style="text-align: center; font-style: italic; font-size: 10px; margin-bottom: 20px;">Graphs </div>
 </body>

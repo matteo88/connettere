@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Language" content="it" />
 	<meta name="robots" content="NONE,NOARCHIVE" />
 
-	<title>GASISTA FELICE</title>
+	<title>GRAPHS</title>
 
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}nui/style/wholestyle.css" />
 
@@ -33,15 +33,3 @@
 </body>
 </html>
 
-{% comment %}
-<form action="graph/" method="post">
-<input type="submit" value="Choose" /><br /><br />
-{% csrf_token %}
-{% for group in all_group_list %}
-    <input type="radio" name="group" id="group{{ forloop.counter }}" value="{{ group.name }}" />
-    <label for="group{{ forloop.counter }}">{{ group.name }}</label><br />
-{% endfor %}
-<br />
-<input type="submit" value="Choose" />
-</form>
-{% endcomment %}
